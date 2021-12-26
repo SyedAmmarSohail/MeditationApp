@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">MeditationApp</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="silent">Silent</string>
+    <string name="moon">Moon</string>
+    <string name="good_morning">Good Morning,</string>
+    <string name="wishing_desc">We Wish you have a good day</string>
 </resources>
