@@ -11,6 +11,6 @@ fun MeditationAppTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Com
     MaterialTheme(
         typography = Typography,
         shapes = Shapes,
-        content = content
+        content = content,
     )
 }

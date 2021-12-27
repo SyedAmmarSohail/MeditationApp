@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.meditationapp.DailyThought
 import com.example.meditationapp.ui.theme.TextWhite
 import com.example.meditationapp.ui.theme.dp10
@@ -57,12 +58,14 @@ fun DailyThoughtsItem(
                         Text(
                             text = dailyThought.title,
                             style = MaterialTheme.typography.h6,
-                            color = dailyThought.textColor
+                            color = dailyThought.textColor,
+                            fontSize = 18.sp
                         )
                         Text(
                             text = dailyThought.description,
                             color = dailyThought.textColor,
-                            style = MaterialTheme.typography.body1
+                            style = MaterialTheme.typography.body1,
+                            fontSize = 11.sp
                         )
                     }
                     Box(

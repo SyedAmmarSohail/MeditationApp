@@ -4,7 +4,7 @@
     <string name="silent">Silent</string>
     <string name="moon">Moon</string>
     <string name="good_morning">Good Morning,</string>
-    <string name="wishing_desc">We Wish you have a good day</string>
+    <string name="wishing_desc">We wish you have a good day</string>
     <string name="daily_thoughts">Daily Thought</string>
     <string name="recommendations">Recommended for you</string>
 </resources>

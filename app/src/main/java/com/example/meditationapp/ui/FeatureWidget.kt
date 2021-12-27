@@ -50,12 +50,14 @@ fun FeatureItem(
                 Text(
                     text = feature.title,
                     style = MaterialTheme.typography.h6,
-                    color = textColor
+                    color = textColor,
+                    fontSize = 18.sp
                 )
                 Text(
                     text = feature.description,
                     color = textColor,
-                    style = MaterialTheme.typography.body1
+                    style = MaterialTheme.typography.body1,
+                    fontSize = 14.sp
                 )
             }
 
