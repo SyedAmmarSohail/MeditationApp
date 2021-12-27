@@ -1,19 +1,14 @@
 package com.example.meditationapp.ui
 
 import android.widget.ImageView
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.lazy.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -27,21 +22,21 @@ import androidx.compose.ui.unit.dp
 import com.example.meditationapp.*
 import com.example.meditationapp.R
 import com.example.meditationapp.ui.theme.*
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.awaitCancellation
+import kotlinx.coroutines.launch
 
+@ExperimentalFoundationApi
 @Preview(showBackground = true)
 @Composable
 fun HomeScreen() {
 
     val scrollState = rememberScrollState()
 
-    Box(modifier = Modifier.fillMaxSize()){
+    Box(modifier = Modifier.fillMaxSize()) {
         Column(
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.Start,
@@ -92,15 +87,29 @@ fun HomeScreen() {
                     ),
                 )
             )
+            TopicSection(
+                listOf(
+                    Topic("Reduce Stress", R.drawable.ic_topic_1),
+                    Topic("Improve Performance", R.drawable.ic_topic_2),
+                    Topic("Increase Happiness", R.drawable.ic_topic_3),
+                    Topic("Reduce Anxiety", R.drawable.ic_topic_4),
+                    Topic("Personal Growth", R.drawable.ic_topic_5),
+                    Topic("Better Sleep", R.drawable.ic_topic_6),
+                    Topic("Reduce Stress", R.drawable.ic_topic_1),
+                    Topic("Improve Performance", R.drawable.ic_topic_2)
+                )
+            )
         }
 
-        BottomMenu(items = listOf(
-            BottomMenuContent("Home", R.drawable.ic_home),
-            BottomMenuContent("Sleep",R.drawable.ic_sleep),
-            BottomMenuContent("Meditate", R.drawable.ic_meditate),
-            BottomMenuContent("Music", R.drawable.ic_music),
-            BottomMenuContent("Profile", R.drawable.ic_profile),
-        ), modifier = Modifier.align(Alignment.BottomCenter))
+        BottomMenu(
+            items = listOf(
+                BottomMenuContent("Home", R.drawable.ic_home),
+                BottomMenuContent("Sleep", R.drawable.ic_sleep),
+                BottomMenuContent("Meditate", R.drawable.ic_meditate),
+                BottomMenuContent("Music", R.drawable.ic_music),
+                BottomMenuContent("Profile", R.drawable.ic_profile),
+            ), modifier = Modifier.align(Alignment.BottomCenter)
+        )
     }
 }
 
@@ -143,7 +152,12 @@ fun greetingSection(
             style = MaterialTheme.typography.h1,
             fontSize = 22.sp
         )
-        Text(text = stringResource(R.string.wishing_desc), style = MaterialTheme.typography.body1, color = LightGray, fontSize = 18.sp)
+        Text(
+            text = stringResource(R.string.wishing_desc),
+            style = MaterialTheme.typography.body1,
+            color = LightGray,
+            fontSize = 18.sp
+        )
     }
 }
 
@@ -176,7 +190,7 @@ fun FeatureSection() {
 
 @Composable
 fun DailyThoughtsSection() {
-    Box(modifier = Modifier.padding(horizontal = 15.dp)){
+    Box(modifier = Modifier.padding(horizontal = 15.dp)) {
         DailyThoughtsItem(
             DailyThought(
                 stringResource(R.string.daily_thoughts),
@@ -209,7 +223,7 @@ fun RecommendationSection(recommendationList: List<Recommendation>) {
 }
 
 @Composable
-fun CategoriesSection(categoriesList: List<Categories>, initialSelectedItemIndex : Int = 0) {
+fun CategoriesSection(categoriesList: List<Categories>, initialSelectedItemIndex: Int = 0) {
 
     var selectedItemIndex by remember {
         mutableStateOf(initialSelectedItemIndex)
@@ -219,7 +233,7 @@ fun CategoriesSection(categoriesList: List<Categories>, initialSelectedItemIndex
         modifier = Modifier.padding(start = 15.dp)
     ) {
         items(categoriesList.size) {
-            CategoryItem(category = categoriesList[it], selectedItem = selectedItemIndex == it){
+            CategoryItem(category = categoriesList[it], selectedItem = selectedItemIndex == it) {
                 selectedItemIndex = it
             }
         }
@@ -238,7 +252,7 @@ fun BottomMenu(
     var selectedItemIndex by remember {
         mutableStateOf(initialSelectedItemIndex)
     }
-    Box(modifier = modifier.shadow(elevation = 8.dp)){
+    Box(modifier = modifier.shadow(elevation = 8.dp)) {
         Row(
             horizontalArrangement = Arrangement.SpaceAround,
             verticalAlignment = Alignment.CenterVertically,
@@ -259,6 +273,57 @@ fun BottomMenu(
                     selectedItemIndex = index
                 }
             }
+        }
+    }
+}
+
+@ExperimentalFoundationApi
+@Composable
+fun TopicSection(topicList: List<Topic>) {
+    val scope = rememberCoroutineScope()
+    val state = rememberLazyListState()
+    state.disableScrolling(scope)
+    Column(
+        modifier = Modifier.padding(start = 15.dp)
+    ) {
+        Text(
+            text = stringResource(R.string.topics),
+            style = MaterialTheme.typography.h2,
+            textAlign = TextAlign.Start,
+            fontSize = 20.sp
+        )
+        spacerHeight10()
+        LazyColumn(
+            state = state
+        ) {
+            item {
+                StaggeredVerticalGrid(
+                    maxColumnWidth = 300.dp,
+                    modifier = Modifier.padding(4.dp)
+                ) {
+                    (1 until topicList.size).forEach {
+                        TopicItem(topic = topicList[it])
+//                        Card(it.toString(), columnWidth)
+                    }
+                }
+            }
+        }
+
+
+//        LazyVerticalGrid(cells = GridCells.Fixed(2)) {
+//            items(topicList.size) {
+//                TopicItem(topic = topicList[it])
+//            }
+//        }
+    }
+
+}
+
+fun LazyListState.disableScrolling(scope: CoroutineScope) {
+    scope.launch {
+        scroll(scrollPriority = MutatePriority.PreventUserInput) {
+            // Await indefinitely, blocking scrolls
+            awaitCancellation()
         }
     }
 }
