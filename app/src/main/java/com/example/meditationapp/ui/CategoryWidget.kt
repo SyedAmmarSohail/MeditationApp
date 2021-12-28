@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.meditationapp.Categories
@@ -58,7 +59,8 @@ fun CategoryItem(
             text = category.title,
             style = MaterialTheme.typography.body1,
             fontSize = 12.sp,
-            color = if (selectedItem) DeepBlue else Gray
+            color = if (selectedItem) DeepBlue else Gray,
+            fontWeight = FontWeight.Bold
         )
     }
 }

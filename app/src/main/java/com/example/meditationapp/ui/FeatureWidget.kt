@@ -42,6 +42,13 @@ fun FeatureItem(
             modifier = Modifier
                 .fillMaxSize()
         ) {
+
+            Image(
+                painter = painterResource(id = feature.image),
+                contentDescription = feature.title,
+                modifier = Modifier.align(Alignment.TopEnd)
+            )
+
             Column(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.Start,
@@ -51,7 +58,8 @@ fun FeatureItem(
                     text = feature.title,
                     style = MaterialTheme.typography.h6,
                     color = textColor,
-                    fontSize = 18.sp
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold
                 )
                 Text(
                     text = feature.description,
@@ -61,11 +69,6 @@ fun FeatureItem(
                 )
             }
 
-            Image(
-                painter = painterResource(id = feature.image),
-                contentDescription = feature.title,
-                modifier = Modifier.align(Alignment.TopEnd)
-            )
             Row(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier.fillMaxWidth().fillMaxHeight().padding(bottom = 15.dp, start = 15.dp, end = 15.dp),

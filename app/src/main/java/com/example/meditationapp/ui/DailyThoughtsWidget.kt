@@ -46,7 +46,7 @@ fun DailyThoughtsItem(
 
             Box(
                 modifier = Modifier.padding(
-                    horizontal = 30.dp
+                    horizontal = 15.dp
                 )
             ) {
                 Row(

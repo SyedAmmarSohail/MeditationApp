@@ -24,7 +24,12 @@ import com.example.meditationapp.R
 import com.example.meditationapp.ui.theme.*
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color.Companion.White
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.sp
+import com.google.accompanist.flowlayout.FlowMainAxisAlignment
+import com.google.accompanist.flowlayout.FlowRow
+import com.google.accompanist.flowlayout.SizeMode
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.launch
@@ -37,68 +42,74 @@ fun HomeScreen() {
     val scrollState = rememberScrollState()
 
     Box(modifier = Modifier.fillMaxSize()) {
-        Column(
+        LazyColumn(
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.Start,
             modifier = Modifier
-                .verticalScroll(scrollState)
-                .padding(bottom = 120.dp)
+//                .verticalScroll(scrollState)
+                .padding(bottom = 100.dp)
 
         ) {
-            appTitle()
-            spacerHeight10()
-            greetingSection(name = "Ammar")
-            spacerHeight20()
-            CategoriesSection(
-                listOf(
-                    Categories("All", R.drawable.ic_category_all),
-                    Categories("My", R.drawable.ic_category_my),
-                    Categories("Anxious", R.drawable.ic_category_anxious),
-                    Categories("Sleep", R.drawable.ic_category_sleep),
-                    Categories("Kids", R.drawable.ic_category_kids),
+            item {
+                appTitle()
+                spacerHeight10()
+                greetingSection(name = "Ammar")
+                spacerHeight20()
+                CategoriesSection(
+                    listOf(
+                        Categories("All", R.drawable.ic_category_all),
+                        Categories("My", R.drawable.ic_category_my),
+                        Categories("Anxious", R.drawable.ic_category_anxious),
+                        Categories("Sleep", R.drawable.ic_category_sleep),
+                        Categories("Kids", R.drawable.ic_category_kids),
+                    )
                 )
-            )
-            spacerHeight20()
-            FeatureSection()
-            spacerHeight20()
-            DailyThoughtsSection()
-            spacerHeight20()
-            RecommendationSection(
-                listOf<Recommendation>(
-                    Recommendation(
-                        "Focus",
-                        description = "MEDITATION 3-10 MIN",
-                        R.drawable.ic_recommendation_1
-                    ),
-                    Recommendation(
-                        "Happiness",
-                        description = "MEDITATION 3-10 MIN",
-                        R.drawable.ic_recommendation_2
-                    ),
-                    Recommendation(
-                        "Focus",
-                        description = "MEDITATION 3-10 MIN",
-                        R.drawable.ic_recommendation_1
-                    ),
-                    Recommendation(
-                        "Happiness",
-                        description = "MEDITATION 3-10 MIN",
-                        R.drawable.ic_recommendation_2
-                    ),
+                spacerHeight20()
+                FeatureSection()
+                spacerHeight20()
+                DailyThoughtsSection()
+                spacerHeight20()
+                RecommendationSection(
+                    listOf<Recommendation>(
+                        Recommendation(
+                            "Focus",
+                            description = "MEDITATION 3-10 MIN",
+                            R.drawable.ic_recommendation_1
+                        ),
+                        Recommendation(
+                            "Happiness",
+                            description = "MEDITATION 3-10 MIN",
+                            R.drawable.ic_recommendation_2
+                        ),
+                        Recommendation(
+                            "Focus",
+                            description = "MEDITATION 3-10 MIN",
+                            R.drawable.ic_recommendation_1
+                        ),
+                        Recommendation(
+                            "Happiness",
+                            description = "MEDITATION 3-10 MIN",
+                            R.drawable.ic_recommendation_2
+                        ),
+                    )
                 )
-            )
-            TopicSection(
-                listOf(
-                    Topic("Reduce Stress", R.drawable.ic_topic_1),
-                    Topic("Improve Performance", R.drawable.ic_topic_2),
-                    Topic("Increase Happiness", R.drawable.ic_topic_3),
-                    Topic("Reduce Anxiety", R.drawable.ic_topic_4),
-                    Topic("Personal Growth", R.drawable.ic_topic_5),
-                    Topic("Better Sleep", R.drawable.ic_topic_6),
-                    Topic("Reduce Stress", R.drawable.ic_topic_1),
-                    Topic("Improve Performance", R.drawable.ic_topic_2)
+            }
+
+            item {
+                spacerHeight20()
+                TopicSection(
+                    listOf(
+                        Topic("Reduce Stress", R.drawable.ic_topic_1, Blue, TextWhite),
+                        Topic("Improve Performance", R.drawable.ic_topic_2, Red, TextWhite),
+                        Topic("Increase Happiness", R.drawable.ic_topic_3, LightOrange, DeepBlue),
+                        Topic("Reduce Anxiety", R.drawable.ic_topic_4, Yellow, DeepBlue),
+                        Topic("Personal Growth", R.drawable.ic_topic_5, Green, TextWhite),
+                        Topic("Better Sleep", R.drawable.ic_topic_6, DarkGray, TextWhite),
+                        Topic("Reduce Stress", R.drawable.ic_topic_1, Blue, TextWhite),
+                        Topic("Improve Performance", R.drawable.ic_topic_2, Red, TextWhite)
+                    )
                 )
-            )
+            }
         }
 
         BottomMenu(
@@ -126,8 +137,10 @@ fun appTitle(
     ) {
         Text(
             text = stringResource(R.string.silent),
-            style = MaterialTheme.typography.body1,
-            textAlign = TextAlign.Center
+            style = MaterialTheme.typography.h1,
+            fontSize = 16.sp,
+            textAlign = TextAlign.Center,
+            color = DeepBlue
         )
         Spacer(modifier = Modifier.width(10.dp))
         Image(
@@ -135,7 +148,7 @@ fun appTitle(
             contentDescription = "App Icon"
         )
         Spacer(modifier = Modifier.width(10.dp))
-        Text(text = stringResource(R.string.moon), style = MaterialTheme.typography.body1)
+        Text(text = stringResource(R.string.moon), style = MaterialTheme.typography.h1, fontSize = 16.sp, color = DeepBlue)
     }
 }
 
@@ -177,7 +190,7 @@ fun FeatureSection() {
                 .wrapContentHeight(), TextWhite
         )
         FeatureItem(
-            Feature("Relaxation", "Music", R.drawable.ic_logo, "3-10 MIN"), Modifier
+            Feature("Relaxation", "Music", R.drawable.ic_feature_2, "3-10 MIN"), Modifier
                 .weight(1f)
                 .padding(start = 7.5.dp)
                 .aspectRatio(1f)
@@ -284,30 +297,31 @@ fun TopicSection(topicList: List<Topic>) {
     val state = rememberLazyListState()
     state.disableScrolling(scope)
     Column(
-        modifier = Modifier.padding(start = 15.dp)
+        modifier = Modifier.padding(horizontal = 7.5.dp)
     ) {
         Text(
             text = stringResource(R.string.topics),
             style = MaterialTheme.typography.h2,
             textAlign = TextAlign.Start,
-            fontSize = 20.sp
+            fontSize = 20.sp,
+            modifier = Modifier.padding(start = 7.5.dp)
         )
         spacerHeight10()
-        LazyColumn(
-            state = state
-        ) {
-            item {
-                StaggeredVerticalGrid(
-                    maxColumnWidth = 300.dp,
-                    modifier = Modifier.padding(4.dp)
-                ) {
-                    (1 until topicList.size).forEach {
-                        TopicItem(topic = topicList[it])
-//                        Card(it.toString(), columnWidth)
-                    }
-                }
-            }
-        }
+//        LazyColumn(
+//            state = state
+//        ) {
+//            item {
+//                StaggeredVerticalGrid(
+//                    maxColumnWidth = 300.dp,
+//                    modifier = Modifier.padding(4.dp)
+//                ) {
+//                    (1 until topicList.size).forEach {
+//                        TopicItem(topic = topicList[it])
+////                        Card(it.toString(), columnWidth)
+//                    }
+//                }
+//            }
+//        }
 
 
 //        LazyVerticalGrid(cells = GridCells.Fixed(2)) {
@@ -315,6 +329,16 @@ fun TopicSection(topicList: List<Topic>) {
 //                TopicItem(topic = topicList[it])
 //            }
 //        }
+
+        val itemSize: Dp = (LocalConfiguration.current.screenWidthDp.dp / 2) - 23.dp
+        FlowRow(
+            mainAxisSize = SizeMode.Expand,
+            mainAxisAlignment = FlowMainAxisAlignment.SpaceBetween
+        ) {
+            topicList.forEachIndexed { index, _ ->
+                TopicItem(topic = topicList[index], itemSize)
+            }
+        }
     }
 
 }

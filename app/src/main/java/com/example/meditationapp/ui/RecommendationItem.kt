@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.meditationapp.Recommendation
@@ -39,7 +40,9 @@ fun RecommendationItem(
             text = recommendation.title,
             style = MaterialTheme.typography.h6,
             color = DeepBlue,
-            fontSize = 16.sp
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(top = 5.dp)
         )
         Text(
             text = recommendation.description,
