@@ -1,4 +1,4 @@
-package com.example.meditationapp.screen
+package com.example.meditationapp.ui.screen
 
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
@@ -23,10 +23,10 @@ import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.sp
-import com.example.meditationapp.component.*
-import com.example.meditationapp.model.*
-import com.example.meditationapp.spacerHeight10
-import com.example.meditationapp.spacerHeight20
+import com.example.meditationapp.ui.component.*
+import com.example.meditationapp.ui.model.*
+import com.example.meditationapp.ui.spacerHeight10
+import com.example.meditationapp.ui.spacerHeight20
 import com.google.accompanist.flowlayout.FlowMainAxisAlignment
 import com.google.accompanist.flowlayout.FlowRow
 import com.google.accompanist.flowlayout.SizeMode

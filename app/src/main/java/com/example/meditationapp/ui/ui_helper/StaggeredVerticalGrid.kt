@@ -1,4 +1,4 @@
-package com.example.meditationapp.ui_helper
+package com.example.meditationapp.ui.ui_helper
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

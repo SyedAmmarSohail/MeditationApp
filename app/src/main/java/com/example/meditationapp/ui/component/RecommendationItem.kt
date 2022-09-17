@@ -1,4 +1,4 @@
-package com.example.meditationapp.component
+package com.example.meditationapp.ui.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -17,7 +17,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.meditationapp.model.Recommendation
+import com.example.meditationapp.ui.model.Recommendation
 import com.example.meditationapp.ui.theme.DeepBlue
 import com.example.meditationapp.ui.theme.dp10
 

@@ -1,4 +1,4 @@
-package com.example.meditationapp.component
+package com.example.meditationapp.ui.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -15,7 +15,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.meditationapp.model.DailyThought
+import com.example.meditationapp.ui.model.DailyThought
 import com.example.meditationapp.ui.theme.TextWhite
 import com.example.meditationapp.ui.theme.dp10
 import com.example.meditationapp.R

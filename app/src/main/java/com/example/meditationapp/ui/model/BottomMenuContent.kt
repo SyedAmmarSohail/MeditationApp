@@ -1,4 +1,4 @@
-package com.example.meditationapp.model
+package com.example.meditationapp.ui.model
 
 import androidx.annotation.DrawableRes
 import com.example.meditationapp.R

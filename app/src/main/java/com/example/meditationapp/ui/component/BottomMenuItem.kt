@@ -1,4 +1,4 @@
-package com.example.meditationapp.component
+package com.example.meditationapp.ui.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -15,8 +15,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.meditationapp.model.BottomMenuContent
-import com.example.meditationapp.spacerHeight5
+import com.example.meditationapp.ui.model.BottomMenuContent
+import com.example.meditationapp.ui.spacerHeight5
 import com.example.meditationapp.ui.theme.AquaBlue
 import com.example.meditationapp.ui.theme.ButtonBlue
 import com.example.meditationapp.ui.theme.Gray

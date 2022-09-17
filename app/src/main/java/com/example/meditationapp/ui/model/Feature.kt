@@ -1,4 +1,4 @@
-package com.example.meditationapp.model
+package com.example.meditationapp.ui.model
 
 data class Feature(
     val title : String,

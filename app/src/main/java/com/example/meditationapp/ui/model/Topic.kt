@@ -1,4 +1,4 @@
-package com.example.meditationapp.model
+package com.example.meditationapp.ui.model
 
 import androidx.compose.ui.graphics.Color
 import com.example.meditationapp.R
