@@ -8,13 +8,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.meditationapp.R
 
-val gothicA1 = FontFamily(
+val sans = FontFamily(
     listOf(
-        Font(R.font.gothica1_regular, FontWeight.Normal),
-        Font(R.font.gothica1_medium, FontWeight.Medium),
-        Font(R.font.gothica1_semibold, FontWeight.SemiBold),
-        Font(R.font.gothica1_bold, FontWeight.Bold),
-        Font(R.font.gothica1_black, FontWeight.Black),
+        Font(R.font.sans_pro_regular, FontWeight.Normal),
+        Font(R.font.sans_pro_light, FontWeight.Medium),
+        Font(R.font.sans_pro_semi_bold, FontWeight.SemiBold),
+        Font(R.font.sans_pro_bold, FontWeight.Bold),
+        Font(R.font.sans_pro_black, FontWeight.Black),
     )
 )
 
@@ -22,21 +22,21 @@ val gothicA1 = FontFamily(
 val Typography = Typography(
     body1 = TextStyle(
         color = DeepBlue,
-        fontFamily = gothicA1,
+        fontFamily = sans,
         fontWeight = FontWeight.Normal,
         fontSize = 14.sp
     ),
     h1 = TextStyle(
         color = DeepBlue,
-        fontFamily = gothicA1,
-        fontWeight = FontWeight.Bold,
+        fontFamily = sans,
+        fontWeight = FontWeight.Black,
         fontSize = 22.sp
     ),
     h2 = TextStyle(
         color = DeepBlue,
-        fontFamily = gothicA1,
+        fontFamily = sans,
         fontWeight = FontWeight.Bold,
         fontSize = 18.sp
     ),
-    defaultFontFamily = gothicA1
+    defaultFontFamily = sans
 )

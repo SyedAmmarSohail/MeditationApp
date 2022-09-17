@@ -1,6 +1,5 @@
-package com.example.meditationapp.ui
+package com.example.meditationapp.component
 
-import android.graphics.drawable.Icon
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -15,13 +14,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.meditationapp.Categories
-import com.example.meditationapp.R
+import com.example.meditationapp.model.Categories
+import com.example.meditationapp.spacerHeight5
 import com.example.meditationapp.ui.theme.Blue
 import com.example.meditationapp.ui.theme.DeepBlue
 import com.example.meditationapp.ui.theme.Gray

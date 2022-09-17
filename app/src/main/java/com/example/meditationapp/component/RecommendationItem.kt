@@ -1,4 +1,4 @@
-package com.example.meditationapp.ui
+package com.example.meditationapp.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -17,7 +17,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.meditationapp.Recommendation
+import com.example.meditationapp.model.Recommendation
 import com.example.meditationapp.ui.theme.DeepBlue
 import com.example.meditationapp.ui.theme.dp10
 
@@ -27,9 +27,9 @@ fun RecommendationItem(
 ) {
     Column(
         horizontalAlignment = Alignment.Start,
-        modifier = Modifier.wrapContentHeight()
+        modifier = Modifier.wrapContentHeight().padding(horizontal = 8.dp)
     ) {
-        Box(modifier = Modifier.clip(RoundedCornerShape(dp10)).padding(end = 15.dp)) {
+        Box(modifier = Modifier.clip(RoundedCornerShape(dp10))) {
             Image(
                 painter = painterResource(id = recommendation.image),
                 contentDescription = "Recommendation Image"
@@ -46,8 +46,8 @@ fun RecommendationItem(
         )
         Text(
             text = recommendation.description,
-            color = Color.LightGray,
-            style = MaterialTheme.typography.subtitle2,
+            color = Color.Gray,
+            style = MaterialTheme.typography.body1,
             fontSize = 10.sp
         )
     }

@@ -1,14 +1,13 @@
-package com.example.meditationapp.ui
+package com.example.meditationapp
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.meditationapp.screen.HomeScreen
 import com.example.meditationapp.ui.theme.MeditationAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,10 +17,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             MeditationAppTheme {
                 HomeScreen()
-                // A surface container using the 'background' color from the theme
-//                Surface(color = MaterialTheme.colors.background) {
-//                    Greeting("Android")
-//                }
             }
         }
     }

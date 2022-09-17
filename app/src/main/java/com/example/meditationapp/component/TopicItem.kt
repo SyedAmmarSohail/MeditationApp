@@ -1,6 +1,5 @@
-package com.example.meditationapp.ui
+package com.example.meditationapp.component
 
-import android.widget.ImageView
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -17,8 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.meditationapp.Topic
-import com.example.meditationapp.ui.theme.DeepBlue
+import com.example.meditationapp.model.Topic
 import com.example.meditationapp.ui.theme.dp10
 
 @Composable

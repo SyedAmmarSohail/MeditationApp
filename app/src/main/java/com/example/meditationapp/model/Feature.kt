@@ -1,6 +1,4 @@
-package com.example.meditationapp
-
-import androidx.compose.ui.graphics.Color
+package com.example.meditationapp.model
 
 data class Feature(
     val title : String,

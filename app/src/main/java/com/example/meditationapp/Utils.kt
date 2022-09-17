@@ -1,4 +1,4 @@
-package com.example.meditationapp.ui
+package com.example.meditationapp
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height

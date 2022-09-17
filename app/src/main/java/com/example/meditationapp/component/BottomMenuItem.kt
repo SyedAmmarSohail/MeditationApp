@@ -1,10 +1,11 @@
-package com.example.meditationapp.ui
+package com.example.meditationapp.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,7 +15,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.meditationapp.BottomMenuContent
+import com.example.meditationapp.model.BottomMenuContent
+import com.example.meditationapp.spacerHeight5
 import com.example.meditationapp.ui.theme.AquaBlue
 import com.example.meditationapp.ui.theme.ButtonBlue
 import com.example.meditationapp.ui.theme.Gray
@@ -52,6 +54,7 @@ fun BottomMenuItem(
         spacerHeight5()
         Text(
             text = item.title,
+            style = MaterialTheme.typography.h2,
             color = if(isSelected) activeTextColor else inactiveTextColor,
             fontSize = 14.sp
         )
